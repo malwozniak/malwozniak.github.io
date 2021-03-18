@@ -2,25 +2,25 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" src="scss/style.css" />
-		<title>My first three.js app</title>
+		<link rel="stylesheet" href="scss/style.css" />
+		<title>Portfolio</title>
 		<style>
 			body { margin: 0; }
 			html {
     width: 100%;
     height: 100%;
     
-    background: #11e8bb; /* Old browsers */
-    background: -moz-linear-gradient(top,  #11e8bb 0%, #8200c9 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #11e8bb 0%,#8200c9 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #11e8bb 0%,#8200c9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11e8bb', endColorstr='#8200c9',GradientType=0 ); /* IE6-9 */
+    background: #0de4b5; /* Old browsers */
+    background: -moz-linear-gradient(left,  #0de4b5 0%, #0a296b 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #0de4b5 0%,#0a296b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(left bottom,  #0de4b5 0%,#0a296b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0de4b5', endColorstr='#0a296b',GradientType=0 ); /* IE6-9 */
   }
   
 		</style>
 	</head>
 	<body>
-		<div id="canvas">Description</div>
+		<div id="canvas" ><span class="text-canvas">Welcome!</span></div>
 		<script src="node_modules/three/build/three.js"></script>
 		<script>
  var renderer, scene, camera, composer, circle, skelet, particle;
@@ -49,37 +49,28 @@ function init() {
   particle = new THREE.Object3D();
 
   scene.add(circle);
-  scene.add(skelet);
   scene.add(particle);
 
-  var geometry = new THREE.TetrahedronGeometry(2, 0);
-  var geom = new THREE.IcosahedronGeometry(7, 1);
-  var geom2 = new THREE.IcosahedronGeometry(15, 1);
+  var geometry = new THREE.SphereGeometry( 5, 32, 32 );
+  var geom = new THREE.SphereGeometry( 5, 32, 32 );
+
 
   var material = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
-    shading: THREE.FlatShading
+    color: 0xffffff
   });
 
-  for (var i = 0; i < 500; i++) {
+  for (var i = 0; i < 20; i++) {
     var mesh = new THREE.Mesh(geometry, material);
     mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
-    mesh.position.multiplyScalar(90 + (Math.random() * 700));
+    mesh.position.multiplyScalar(90 + (Math.random() * 300));
     mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
     particle.add(mesh);
   }
 
   var mat = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
-    shading: THREE.FlatShading
+    color: 0xffffff
   });
 
-  var mat2 = new THREE.MeshPhongMaterial({
-    color: 0xffffff,
-    wireframe: true,
-    side: THREE.DoubleSide
-
-  });
 
   var planet = new THREE.Mesh(geom, mat);
   planet.scale.x = planet.scale.y = planet.scale.z = 16;
@@ -90,13 +81,12 @@ function init() {
   scene.add(ambientLight);
   
   var lights = [];
-lights[0] = new THREE.DirectionalLight( 0xffffff, 1 );
-lights[0].position.set( 1, 0, 0 );
+
 lights[1] = new THREE.DirectionalLight( 0x11E8BB, 1 );
 lights[1].position.set( 0.75, 1, 0.5 );
 lights[2] = new THREE.DirectionalLight( 0x8200C9, 1 );
 lights[2].position.set( -3.75, 1, 0.5 );
-scene.add( lights[0] );
+
 scene.add( lights[1] );
 scene.add( lights[2] );
   
@@ -115,7 +105,7 @@ function animate() {
   requestAnimationFrame(animate);
 
   particle.rotation.x += 0.0000;
-  particle.rotation.y -= 0.0040;
+  particle.rotation.y -= 0.0060;
   circle.rotation.x -= 0.0020;
   circle.rotation.y -= 0.0030;
   skelet.rotation.x -= 0.0010;

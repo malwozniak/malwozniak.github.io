@@ -64,7 +64,8 @@ function init() {
     mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
     mesh.position.multiplyScalar(90 + (Math.random() * 300));
     mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-    particle.add(mesh);
+    
+	particle.add(mesh);
   }
 
   var mat = new THREE.MeshPhongMaterial({
@@ -82,9 +83,9 @@ function init() {
   
   var lights = [];
 
-lights[1] = new THREE.DirectionalLight( 0x11E8BB, 1 );
+lights[1] = new THREE.DirectionalLight( 0x0a296b, 1 );
 lights[1].position.set( 0.75, 1, 0.5 );
-lights[2] = new THREE.DirectionalLight( 0x8200C9, 1 );
+lights[2] = new THREE.DirectionalLight( 0x0de4b5, 1 );
 lights[2].position.set( -3.75, 1, 0.5 );
 
 scene.add( lights[1] );
@@ -114,6 +115,7 @@ function animate() {
 
   renderer.render( scene, camera )
 };
+
 
 		</script>
 	</body>

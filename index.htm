@@ -51,8 +51,8 @@ function init() {
   scene.add(circle);
   scene.add(particle);
 
-  var geometry = new THREE.SphereGeometry( 5, 32, 32 );
-  var geom = new THREE.SphereGeometry( 5, 32, 32 );
+  var geometry = new THREE.BoxGeometry( 4,4, 4 );
+  var geom = new THREE.BoxGeometry( 4, 4, 4 );
 
 
   var material = new THREE.MeshPhongMaterial({
@@ -86,7 +86,7 @@ function init() {
 lights[1] = new THREE.DirectionalLight( 0x0a296b, 1 );
 lights[1].position.set( 0.75, 1, 0.5 );
 lights[2] = new THREE.DirectionalLight( 0x0de4b5, 1 );
-lights[2].position.set( -3.75, 1, 0.5 );
+lights[2].position.set( -0.75, 1, 0.5 );
 
 scene.add( lights[1] );
 scene.add( lights[2] );

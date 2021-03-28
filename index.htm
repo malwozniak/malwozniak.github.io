@@ -43,7 +43,39 @@ function init() {
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 250;
   scene.add(camera);
+  
+    // ## Create geometries for each crate
+    var crateOneGeo = new THREE.BoxGeometry(2, 2, 2, 1, 1, 1);
+    var crateTwoGeo = new THREE.BoxGeometry(2, 2, 2, 1, 1, 1);
+    var crateThreeGeo = new THREE.BoxGeometry(2, 2, 2, 1, 1, 1);
+    var crateFourGeo = new THREE.BoxGeometry(2, 2, 2, 1, 1, 1);
 
+    // ## Create meshes using our constructor
+    var crateOne = new object(crateOneGeo, crateMaterial);
+    var crateTwo = new object(crateTwoGeo, crateMaterial2);
+    var crateThree = new object(crateThreeGeo, crateMaterial3);
+    var crateFour = new object(crateFourGeo, crateMaterial4);
+
+
+  crates = [];
+    crates.push(crateOne, crateTwo, crateThree, crateFour); // Push objects to array
+    
+    var smokeGeo = new THREE.BoxGeometry(1, 1, 1, 1, 1, 1);
+    // ## Loop over our crates and add them into the scene
+    for (i = 0; i < crates.length; i++) {
+        crates[i].geometry.translate(0, 1, 1); // 0, 1, 1
+        crates[i].position.set(0, 0, (-i * crateOffset) + sceneOffset)
+        crates[i].castShadow = true; // Make crate cast shadows
+        for (a = 0; a < smokeAmount; a++) {
+            s = new object(smokeGeo, smokeMaterial)
+            num = (Math.random() * -2) + 1;
+            s.position.set(num, -0.35, 0);
+            s.scale.set(0.3, 0.3, 0.3);
+            makeSmoke(s);
+            crates[i].add(s);
+        }
+        scene.add(crates[i]); // Add them all to our scene
+    }
   circle = new THREE.Object3D();
   skelet = new THREE.Object3D();
   particle = new THREE.Object3D();
@@ -51,7 +83,6 @@ function init() {
   scene.add(circle);
   scene.add(particle);
 
-  var geometry = new THREE.BoxGeometry( 4,4, 4 );
   var geom = new THREE.BoxGeometry( 4, 4, 4 );
 
 
@@ -60,7 +91,7 @@ function init() {
   });
 
   for (var i = 0; i < 20; i++) {
-    var mesh = new THREE.Mesh(geometry, material);
+    var mesh = new THREE.Mesh(geom, material);
     mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
     mesh.position.multiplyScalar(90 + (Math.random() * 300));
     mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
@@ -90,7 +121,7 @@ lights[2].position.set( -0.75, 1, 0.5 );
 
 scene.add( lights[1] );
 scene.add( lights[2] );
-  
+
 
   window.addEventListener('resize', onWindowResize, false);
 

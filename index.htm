@@ -7,14 +7,14 @@
 		<script type="javascript" src="js/dragwebsite.js"></script>
 	</head>
 	<body>
-<div id="canvas" >
+<div id="canvass" >
       <span class="text-canvas">Welcome</span>
     </div>
 
     <div class="app container-fluid">
       <div id="texture-container">
         
-        <div id="canvass"></div>
+        <div id="canvas"></div>
     
         <div class="plane">
           
@@ -293,7 +293,7 @@ class WEBGL {
 }
 
 const webgl = new WEBGL({
-  canvas: "canvas",
+  canvas: "canvass",
   planeElement: document.getElementsByClassName("plane")[0]
 });
 
@@ -327,20 +327,26 @@ function init() {
   scene.add(circle);
   scene.add(particle);
 
-  var geometry = new THREE.BoxGeometry( 4,4, 4 );
+  var geometry = new THREE.BoxGeometry( 10,10, 10 );
   var geom = new THREE.BoxGeometry( 4, 4, 4 );
 
-
-  var material = new THREE.MeshPhongMaterial({
-    color: 0xffffff
-  });
-
-  for (var i = 0; i < 20; i++) {
-    var mesh = new THREE.Mesh(geometry, material);
+  var material = new THREE.MeshFaceMaterial( [
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'fop.png' ) } ),
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'iff.png' ) } ),
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'hulu.png' ) } ),
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'soon.png' ) } ),
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'soon.png' ) } ),
+                new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( 'soon.png' ) } )
+                ] );
+ 
+        // plane
+        var plane = new THREE.Mesh(new THREE.PlaneGeometry(200, 200),material);
+        plane.overdraw = true;
+ for (var i = 0; i < 20; i++) {
+    var mesh = new THREE.Mesh(plane);
     mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
     mesh.position.multiplyScalar(90 + (Math.random() * 100));
-    mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-    
+   
 	particle.add(mesh);
   }
 

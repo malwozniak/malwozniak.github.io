@@ -4,25 +4,302 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="scss/style.css" />
 		<title>Portfolio</title>
-		<style>
-			body { margin: 0; }
-			html {
-    width: 100%;
-    height: 100%;
-    
-    background: #0de4b5; /* Old browsers */
-    background: -moz-linear-gradient(left,  #0de4b5 0%, #0a296b 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(left,  #0de4b5 0%,#0a296b 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(left bottom,  #0de4b5 0%,#0a296b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0de4b5', endColorstr='#0a296b',GradientType=0 ); /* IE6-9 */
-  }
-  
-		</style>
+		<script type="javascript" src="js/dragwebsite.js"></script>
 	</head>
 	<body>
-		<div id="canvas" ><span class="text-canvas">Welcome!</span></div>
-		<script src="node_modules/three/build/three.js"></script>
+<div id="canvas" >
+      <span class="text-canvas">Welcome</span>
+    </div>
+
+    <div class="app container-fluid">
+      <div id="texture-container">
+        
+        <div id="canvass"></div>
+    
+        <div class="plane">
+          
+          <img data-sampler="texture0" id="texture0" src="flavor-of-poland.gif" crossorigin="anonymous" />
+          <img data-sampler="texture1" id="texture1" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture2" id="texture2" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture3" id="texture3" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture4" id="texture4" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture5" id="texture5" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture6" id="texture6" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture7" id="texture7" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture8" id="texture8" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture9" id="texture9" src="soon.png" crossorigin="anonymous" />
+          <img data-sampler="texture10" id="texture10s" src="soon.png" crossorigin="anonymous" />
+        
+          </div>
+         <h1 class="title-page"> PROJECTS</h1>
+         <div class="characters">
+            <div class="title-text tile-item">
+              <span class="projects">Flavor of Poland</span>
+              <span class="city-of-birth">HTML, CSS, jquery, JS</span> 
+           </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">
+              <span class="projects">Independent Film Factory</span>
+              <span class="city-of-birth">React, SCSS, bootstrap</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Hulu Clone</span>
+              <span class="city-of-birth">React, CSS, Firebase</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Airbnb Clone</span>
+              <span class="city-of-birth">React, CSS, Firebase</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">ECommerce Website</span>
+              <span class="city-of-birth">React, CSS, Firebase</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Realistic Fractals</span>
+              <span class="city-of-birth">HTML, CSS, PHP, mysql</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Filters Image</span>
+              <span class="city-of-birth">Matlab</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Algorithm PCA</span>
+              <span class="city-of-birth">Matlab</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Game three</span>
+              <span class="city-of-birth">Three js, React, CSS, Firebase</span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+            <div class="title-text tile-item">          
+              <span class="projects">Codepen's Fun</span>
+              <span class="city-of-birth">Html, SCSS, JS -> three js </span> 
+            </div>
+            <div class="divider-line tile-item"></div>
+         </div>
+        
+      </div>  
+    </div>
+   
+    <script src="node_modules/three/build/three.js"></script>
+    <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+    <script id="vs" type="x-shader/x-vertex">
+      #ifdef GL_ES
+      precision mediump float;
+      #endif
+      
+      #define PI 3.14159265359
+      #define S(a,b,n) smoothstep(a,b,n)
+    
+      uniform vec2 uDirection;
+      
+      attribute vec3 aVertexPosition;
+      attribute vec2 aTextureCoord;
+  
+      uniform mat4 uMVMatrix;
+      uniform mat4 uPMatrix;
+  
+      uniform mat4 activeTextureMatrix;
+  
+      varying vec3 vVertexPosition;
+      varying vec2 vActiveTextureCoord;
+      varying vec2 vDirection;
+    
+      vec2 deformationCurve(vec2 uv, vec2 direction){
+        float x = sin(vActiveTextureCoord.y * PI) * direction.x;
+        float y = sin(vActiveTextureCoord.x * PI) * direction.y;
+        
+        return vec2(x, y);
+      } 
+  
+      void main() {
+        vec3 vertexPosition = aVertexPosition;
+        vDirection = uDirection;
+        vActiveTextureCoord = (activeTextureMatrix * vec4(aTextureCoord, 0., 1.)).xy;
+        vertexPosition.xy += deformationCurve(vActiveTextureCoord, uDirection);
+  
+        gl_Position = uPMatrix * uMVMatrix * vec4(vertexPosition, 1.0);
+        vVertexPosition = vertexPosition;
+      }
+  </script>
+  <script id="fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision mediump float;
+      #endif
+      
+      #define S(a,b,n) smoothstep(a,b,n)
+  
+      uniform float uAlpha;
+      uniform vec2 uMouse;
+      
+      varying vec2 vActiveTextureCoord;
+      varying vec2 vDirection;
+  
+      uniform sampler2D activeTexture;
+  
+      void main(){
+          vec2 uv0 = vActiveTextureCoord;
+        
+          float r = texture2D(activeTexture, uv0 + vDirection * 0.2).r;
+          float g = texture2D(activeTexture, uv0).g;
+          float b = texture2D(activeTexture, uv0 - vDirection * 0.2).b;
+        
+          gl_FragColor = vec4(vec3(r, g, b), 1.0) * uAlpha;
+      }
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+  <script src="https://www.curtainsjs.com/build/curtains.min.js" type="text/javascript"></script>s
 		<script>
+class WEBGL {
+  constructor(set) {
+    this.webGLCurtain = new Curtains({ container: set.canvas });
+    this.planeElement = set.planeElement;
+    this.titles = [...document.querySelectorAll(".title-text")];
+
+    this.mouse = {
+      x: 0,
+      y: 0
+    };
+
+    this.lastPosition = {
+      x: 0,
+      y: 0
+    };
+
+    this.boundingEl = {};
+    this.strength = 0.25;     
+    this.isOver = false;
+    this.startTime = performance.now();
+
+    this.params = {
+      vertexShader: document.getElementById("vs").textContent,
+      fragmentShader: document.getElementById("fs").textContent,
+      widthSegments: 40,
+      heightSegments: 40,
+      uniforms: {
+        time: {
+          name: "uTime",
+          type: "1f",
+          value: 0
+        },
+        mousepos: {
+          name: "uMouse",
+          type: "2f",
+          value: [0, 0]
+        },
+        progress: {
+          name: "uProgress",
+          type: "1f",
+          value: 0
+        },
+        alpha: {
+          name: "uAlpha",
+          type: "1f",
+          value: 0
+        },
+        direction: {
+          name: "uDirection",
+          type: "2f",
+          value: [0, 0]
+        }
+      }
+    };
+  }
+
+  initPlane() {
+    this.plane = this.webGLCurtain.addPlane(this.planeElement, this.params);
+
+    this.texture = this.plane.createTexture("activeTexture");
+
+    this.texture.setSource(this.plane.images[0]);
+
+    this.boundingEl = this.plane.getBoundingRect(this.planeElement);
+
+    if (this.plane) {
+      this.plane.onReady(() => {
+        this.update();
+        this.initEvent();
+      });
+    }
+  }
+
+  update() {
+    this.plane.onRender(() => {
+      const currentTime = performance.now(); 
+      const distanceX = this.mouse.x - this.lastPosition.x;
+      const distanceY = this.mouse.y - this.lastPosition.y;
+      const time = currentTime - this.startTime;
+      gsap.to(this.plane.uniforms.direction.value, 1, {
+        0: (distanceX / time) * this.strength,
+        1: -(distanceY / time) * this.strength,
+        ease: "power4.out"
+      });
+      this.lastPosition.x = this.mouse.x;
+      this.lastPosition.y = this.mouse.y;
+      this.startTime = currentTime;
+    });
+  }
+
+  movePlane(e) {
+    const target = e.target; 
+    gsap.to(this.mouse, 0.7, {
+      x: e.clientX - this.boundingEl.width / 2,
+      y: e.clientY - this.boundingEl.height / 2,
+      onUpdate: () => {
+        this.plane.setRelativePosition(this.mouse.x, this.mouse.y);
+      }
+    });
+
+    if (target.classList.contains("title-text")) {
+      if (!this.isOver) {
+        const index = this.titles.indexOf(target);
+        this.texture.setSource(this.plane.images[index]);
+
+        gsap.to(this.plane.uniforms.alpha, 0.5, {
+          value: 1,
+          ease: "power4.out"
+        });
+
+        this.isOver = true;
+      }
+    } else {
+      if (this.isOver) {
+        gsap.to(this.plane.uniforms.alpha, 0.5, {
+          value: 0,
+          ease: "power4.out"
+        });
+
+        this.isOver = false;
+      }
+    }
+  }
+
+  initEvent() {
+    window.addEventListener("mousemove", (e) => this.movePlane(e));
+    window.addEventListener("resize", () => this.onResize());
+  }
+
+  onResize() {
+    this.boundingEl = this.plane.getBoundingRect(this.planeElement);
+  }
+}
+
+const webgl = new WEBGL({
+  canvas: "canvas",
+  planeElement: document.getElementsByClassName("plane")[0]
+});
+
+webgl.initPlane();
+
+
  var renderer, scene, camera, composer, circle, skelet, particle;
 
 window.onload = function() {
@@ -39,7 +316,6 @@ function init() {
   document.getElementById('canvas').appendChild(renderer.domElement);
 
   scene = new THREE.Scene();
-
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
   camera.position.z = 250;
   scene.add(camera);
@@ -105,8 +381,7 @@ function onWindowResize() {
 function animate() {
   requestAnimationFrame(animate);
 
-  particle.rotation.x += 0.0000;
-  particle.rotation.y -= 0.0060;
+   particle.rotation.y -= 0.0060;
   circle.rotation.x -= 0.0020;
   circle.rotation.y -= 0.0030;
   skelet.rotation.x -= 0.0010;

@@ -9,3 +9,172 @@
   color: white;
 }
 /*# sourceMappingURL=style.css.map */
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i&display=swap');
+
+@font-face{
+  font-family: ailerons;
+  src: url(https://rawcdn.githack.com/AlainBarrios/Fonts/682d01f44606d8c3d85367b3e259bc3d5f64c58a/Ailerons.otf?raw=true)
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+:root {
+  --fontSize: 2rem;
+  --flexDirection: column;
+}
+
+body { margin: 0; }
+html {
+width: 100%;
+height: 100%;
+background: rgb(242, 233, 218); /* Old browsers */
+
+font-family: ailerons, Montserrat, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container-fluid{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#texture-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#canvass {
+  position: fixed;
+}
+
+.plane {
+  max-width: 250px;
+  max-height: 340px;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.plane img {
+  display: none;
+}
+
+.title-page{
+  color: #43B0D8;
+  font-size: calc(var(--fontSize) * 0.7);
+  margin-bottom: auto;
+  flex-basis: 100%;
+  text-align: center;
+  position: relative;
+  font-family: ailerons;
+}
+
+.characters {
+  flex-basis: 100%;
+  height: 100%;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-wrap: wrap;
+  font-size: var(--fontSize);
+  color: rgb(178, 116, 0);
+  align-items: center;
+  flex-direction: var(--flexDirection);
+  position: relative;
+  justify-content: center;
+}
+
+.tile-item {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.title-text {
+  cursor: pointer;
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.projects{
+  font-family: ailerons;
+  mix-blend-mode: difference;
+}
+
+.projects,
+.date-of-birth,
+.city-of-birth {
+  transition: color 0.5s ease-out, opacity 0.5s ease-out;
+  pointer-events: none;
+}
+
+.date-of-birth,
+.city-of-birth {
+  display: none;
+  padding-top: 10px;
+  font-size: 0.85rem;
+  color: rgb(73, 48, 0);
+}
+
+.title-text:hover .character-name {
+  color: rgba(255, 255, 255);
+}
+
+.title-text:hover .date-of-birth, .title-text:hover .city-of-birth{
+  opacity: 0
+}
+
+.divider-line {
+  background-color:  #43B0D8;
+  height: 2px;
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  :root {
+    --fontSize: 2.3rem;
+    --flexDirection: row;
+  }
+
+  .tile-item {
+    width: calc(100% / 3);
+  }
+
+  .date-of-birth,
+  .city-of-birth {
+    display: block;
+  }
+
+  .divider-line {
+    width: 20%;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    --fontSize: 2.5rem;
+  }
+}

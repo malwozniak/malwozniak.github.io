@@ -1,4 +1,4 @@
-.text-canvas {
+/* .text-canvas {
   font-size: 4vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,7 +7,7 @@
   -ms-flex-pack: center;
   justify-content: center;
   color: white;
-}
+} */
 
 /*# sourceMappingURL=style.css.map */
 
@@ -55,13 +55,19 @@ img {
 
 #texture-container {
   display: flex;
+  margin-top:10%;
   flex-wrap: wrap;
   justify-content: center;
   min-height: 100vh;
+  
 }
 
-#canvass {
-  position: absolute;
+#canvas{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
 }
 
@@ -69,10 +75,9 @@ img {
   max-width: 340px;
   max-height: 250px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+ 
 }
 
 .plane img {
@@ -91,13 +96,12 @@ img {
 
 .characters {
   flex-basis: 100%;
-  height: 100%;
   display: flex;
   padding-left: 15px;
   padding-right: 15px;
   flex-wrap: wrap;
   font-size: var(--fontSize);
-  color: rgb(178, 116, 0);
+  color: #43B0D8;
   align-items: center;
   flex-direction: var(--flexDirection);
   position: relative;
@@ -158,3 +162,25 @@ img {
     --fontSize: 2.5rem;
   }
 }
+/* 
+
+@media screen and (min-width: 600px) {
+  :root {
+    --fontSize: 2.3rem;
+    --flexDirection: row;
+  }
+
+  .tile-item {
+    width: calc(100% / 3);
+  }
+
+  .date-of-birth,
+  .city-of-birth {
+    display: block;
+  }
+
+  .divider-line {
+    width: 20%;
+    display: block;
+  }
+} */

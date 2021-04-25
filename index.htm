@@ -7,11 +7,13 @@
 		<script type="javascript" src="js/dragwebsite.js"></script>
 	</head>
 	<body>
-<div  >
+    <section class="container">
+<div class="beforeImage" >
       <span class="text-canvas">Welcome</span>
+      <img src="soon.png" />
     </div>
 
-    <div class="app container-fluid">
+    <div class="app container-fluid afterImage">
       <div id="texture-container">
         
         <div id="canvas"></div>
@@ -29,10 +31,7 @@
           <img data-sampler="texture8" id="texture8" src="soon.png" crossorigin="anonymous" />
           <img data-sampler="texture9" id="texture9" src="soon.png" crossorigin="anonymous" />
           <img data-sampler="texture10" id="texture10s" src="soon.png" crossorigin="anonymous" />
-          <img data-sampler="texture11" id="texture8" src="soon.png" crossorigin="anonymous" />
-          <img data-sampler="texture12" id="texture9" src="soon.png" crossorigin="anonymous" />
-          <img data-sampler="texture13" id="texture10s" src="soon.png" crossorigin="anonymous" />
-        
+          
           </div>
          <h1 class="title-page"> PROJECTS</h1>
          <div class="characters">
@@ -86,25 +85,11 @@
               <span class="city-of-birth">Html, SCSS, JS -> three js </span> 
             </div>
             <div class="divider-line tile-item"></div>
-            <div class="title-text tile-item">          
-              <span class="projects">Algorithm PCA</span>
-              <span class="city-of-birth">Matlab</span> 
-            </div>
-            <div class="divider-line tile-item"></div>
-            <div class="title-text tile-item">          
-              <span class="projects">Game three</span>
-              <span class="city-of-birth">Three js, React, CSS, Firebase</span> 
-            </div>
-            <div class="divider-line tile-item"></div>
-            <div class="title-text tile-item">          
-              <span class="projects">Codepen's Fun</span>
-              <span class="city-of-birth">Html, SCSS, JS -> three js </span> 
-            </div>
-            <div class="divider-line tile-item"></div>
-         </div>
+        </div>
         
       </div>  
     </div>
+  </section>
    
     <script src="node_modules/three/build/three.js"></script>
     <script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
@@ -317,7 +302,24 @@ const webgl = new WEBGL({
 
 webgl.initPlane();
 
-
+gsap.utils.toArray(".container").forEach(section => {
+  let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "center center",
+        // makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
+        end: () => "+=" + section.offsetWidth, 
+        scrub: true,
+        pin: true,
+        anticipatePin: 1
+      },
+      defaults: {ease: "none"}
+    });
+  // animate the container one way...
+  tl.fromTo(section.querySelector(".afterImage"), { xPercent: 100, x: 0}, {xPercent: 0})
+    // ...and the image the opposite way (at the same time)
+    .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
+});
 //  var renderer, scene, camera, composer, circle, skelet, particle;
 
 // window.onload = function() {

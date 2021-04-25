@@ -46,7 +46,10 @@ img {
   max-width: 100%;
   display: block;
 }
-
+.container{
+  width: 100%;
+  height: 100%;
+}
 .container-fluid{
   max-width: 800px;
   margin-left: auto;
@@ -55,22 +58,28 @@ img {
 
 #texture-container {
   display: flex;
-  margin-top:10%;
   flex-wrap: wrap;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100%;
+  width: 100vw;
   
 }
 
 #canvas{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  
 
 }
-
+.afterImage {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  transform: translate(100%, 0px);
+}
+.afterImage img {
+  position: fixed;
+  transform: translate(-100%, 0px);
+}
 .plane {
   max-width: 340px;
   max-height: 250px;

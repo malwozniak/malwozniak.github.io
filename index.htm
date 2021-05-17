@@ -2,6 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="scss/style.css" />
 		<title>Portfolio</title>
     
@@ -12,7 +14,11 @@
     <section class="container">
 <div class="beforeImage" >
       <span class="text-canvas">Welcome</span>
-      <img src="soon.png" />
+      <p><h1>I'm Malgorzata Wozniak. </h1><h3>Front-End Developer. </h3>I enjoy solving complex problems.
+         Frequently praised as detail-oriented by my peers, 
+        I can be relied upon to help your company achieve its goals by providing sustainable and scalable solutions.</p>
+      <!-- <img src="IMG_1934_mn.jpg" /> -->
+        <canvas class="webgl"></canvas>
     </div>
 
     <div class="app container-fluid afterImage">
@@ -296,31 +302,7 @@ class WEBGL {
   }
 }
 
-const webgl = new WEBGL({
-  canvas: "canvas",
-  planeElement: document.getElementsByClassName("plane")[0]
-});
 
-webgl.initPlane();
-
-gsap.utils.toArray(".container").forEach(section => {
-  let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: "center center",
-        // makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
-        end: () => "+=" + section.offsetWidth, 
-        scrub: true,
-        pin: true,
-        anticipatePin: 1
-      },
-      defaults: {ease: "none"}
-    });
-  // animate the container one way...
-  tl.fromTo(section.querySelector(".afterImage"), { xPercent: 100, x: 0}, {xPercent: 0})
-    // ...and the image the opposite way (at the same time)
-    .fromTo(section.querySelector(".afterImage img"), {xPercent: -100, x: 0}, {xPercent: 0}, 0);
-});
 //  var renderer, scene, camera, composer, circle, skelet, particle;
 
 // window.onload = function() {

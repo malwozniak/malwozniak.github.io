@@ -1,0 +1,68 @@
+{
+    "projects":
+    [{
+        "id" : "1",
+        "title": "Flavor of Poland",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/fop.png",
+        "languages" : "HTML, CSS, jquery, Javascript"
+    },
+    {
+        "id" : "2",
+        "title": "Independent Film Factory",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/iff.png",
+        "languages" : "React, React Hooks, SCSS"
+        },
+    {
+        "id" : "3",
+        "title": "Hulu Clone",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/hulu.png",
+        "languages" : "React , React Hooks, CSS"
+    },
+    {
+        "id" : "4",
+        "title": "Airbnb Clone",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/airbnb.png",
+        "languages" : "React, React Hooks, CSS"
+    },
+    {
+        "id" : "5",
+        "title": "Realistic Fractals",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/fractal.png",
+        "languages" : "HTML, CSS, PHP, mysql"
+    },
+    {
+        "id" : "6",
+        "title": "Algorithm of PCA",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/pca.png",
+        "languages" : "Matlab"
+    },
+    {
+        "id" : "7",
+        "title": "Codepen's Fun",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/codepen.png",
+        "languages" : "Html, CSS, Javascript"
+    },
+    {
+        "id" : "8",
+        "title": "Projects in Javascript",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/javascript.png",
+        "languages" : "Javascript"
+    },
+    {
+        "id" : "9",
+        "title": "Projects in Java",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/java.png",
+        "languages" : "Java"
+    },
+    {
+        "id" : "10",
+        "title": "Projects in C#",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/csharp.png",
+        "languages" : "C#"
+    }
+
+
+
+]
+
+}

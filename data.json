@@ -24,21 +24,21 @@
     {
         "id" : "4",
         "title": "Airbnb Clone",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/airbnb.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/soon.png",
         "languages" : "React, React Hooks, CSS",
         "url" : ""
     },
     {
         "id" : "5",
         "title": "Realistic Fractals",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/fractal.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/fractal.png",
         "languages" : "HTML, CSS, PHP, mysql",
         "url" : ""
     },
     {
         "id" : "6",
         "title": "Algorithm of PCA",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/pca.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/pca.png",
         "languages" : "Matlab",
         "url" : ""
     },
@@ -52,21 +52,21 @@
     {
         "id" : "8",
         "title": "Projects in Javascript",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/javascript.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/javascript.png",
         "languages" : "Javascript",
         "url" : ""
     },
     {
         "id" : "9",
         "title": "Projects in Java",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/java.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/java.png",
         "languages" : "Java",
         "url" : ""
     },
     {
         "id" : "10",
         "title": "Projects in C#",
-        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/csharp.png",
+        "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/csharp.png",
         "languages" : "C#",
         "url" : ""
     }

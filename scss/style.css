@@ -44,6 +44,7 @@ height: 100%;
 background: black;
 color: #43B0D8;
 font-family: 'Poppins', Montserrat, sans-serif;
+overflow-x: hidden;
 }
 
 img {

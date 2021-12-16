@@ -68,6 +68,10 @@ img {
   width: 100vw;
   
 }
+#texture-container h1{
+    color: antiquewhite;
+    font-size: 6vh;
+}
 
 #canvas{
   position: relative;

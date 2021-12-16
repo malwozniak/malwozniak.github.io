@@ -18,21 +18,21 @@
         "id" : "3",
         "title": "Hulu Clone",
         "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/hulu.png",
-        "languages" : "React , React Hooks, CSS",
+        "languages" : "React , React Hooks, CSS, Firebase",
         "url" : ""
     },
     {
         "id" : "4",
         "title": "Airbnb Clone",
         "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/soon.png",
-        "languages" : "React, React Hooks, CSS",
+        "languages" : "React, React Hooks, CSS, Firebase",
         "url" : ""
     },
     {
         "id" : "5",
         "title": "Realistic Fractals",
         "image": "https://raw.githubusercontent.com/malwozniak/malwozniak.github.io/main/images/fractal.png",
-        "languages" : "HTML, CSS, PHP, mysql",
+        "languages" : "HTML, CSS, PHP, MYSQL",
         "url" : ""
     },
     {

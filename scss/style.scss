@@ -129,9 +129,11 @@ border-radius: 10px;
 
 
 ul.section-projects{
+ 
   & li{
-     padding-bottom: 20px;
-
+    
+    padding-bottom: 20px;
+ 
 list-style-type: none;
 div.list{
  color: rgb(152, 146, 146);
@@ -196,11 +198,9 @@ text-underline-position: under;
   
 }
 
-ul{
-  padding:0;
-}
+
 .skill-contener{
-  padding:0;
+  padding: 0;
   & li{
     display:contents;
     font-weight: 600;
@@ -276,7 +276,9 @@ display: none;
     &i{
       font-size: 0.5rem;
     }
-   
+   &:hover{
+    border-style: inset;
+   }
 
   }
 
@@ -285,6 +287,7 @@ display: none;
   position: fixed;
   bottom: 1em;
   right: 1em;
+  z-index: 100;
 }
 
 .circular-menu .floating-btn {
@@ -308,10 +311,7 @@ display: none;
 .circular-menu .floating-btn:active {
   box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
 }
-.circular-menu .floating-btn:hover {
-  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
-  background-color: var(--violet);
-}
+
 .circular-menu .floating-btn i {
   font-size: 1.3em;
   transition: transform .2s;  
@@ -320,10 +320,6 @@ display: none;
 .circular-menu.active .floating-btn i {
   transform: rotate(-45deg);
 }
-.circular-menu.hover .floating-btn i {
-  transform: rotate(-45deg);
-}
-
 
 .circular-menu:after {
   display: block;
@@ -334,7 +330,7 @@ display: none;
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 5;
+  z-index: -2;
   background-color: var(--violet);
   transition: all .3s ease;
 }
@@ -353,7 +349,7 @@ display: none;
   position: absolute;
   top: .2em;
   right: .2em;
-  z-index: 6;
+  z-index: -1;
   display: block;
   text-decoration: none;
   color: hsl(0, 0%, 100%);
@@ -368,7 +364,7 @@ display: none;
 }
 
 .circular-menu .menu-item:hover {
-  background-color: var(--violet);
+  background-color: hsla(0,0%,0%,.3);
 }
 
 .circular-menu.active .menu-item {

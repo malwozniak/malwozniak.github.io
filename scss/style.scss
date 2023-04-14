@@ -304,7 +304,10 @@ display: none;
 .circular-menu .floating-btn:active {
   box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
 }
-
+.circular-menu .floating-btn:hover {
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, .4);
+  background-color: var(--violet);
+}
 .circular-menu .floating-btn i {
   font-size: 1.3em;
   transition: transform .2s;  
@@ -313,6 +316,10 @@ display: none;
 .circular-menu.active .floating-btn i {
   transform: rotate(-45deg);
 }
+.circular-menu.hover .floating-btn i {
+  transform: rotate(-45deg);
+}
+
 
 .circular-menu:after {
   display: block;
@@ -357,7 +364,7 @@ display: none;
 }
 
 .circular-menu .menu-item:hover {
-  background-color: hsla(0,0%,0%,.3);
+  background-color: var(--violet);
 }
 
 .circular-menu.active .menu-item {

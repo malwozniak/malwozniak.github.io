@@ -111,6 +111,7 @@ header .links .media {
   }
 }
 ul.section-projects li {
+  padding-bottom: 20px;
   list-style-type: none;
 }
 ul.section-projects li div.list {
@@ -160,6 +161,9 @@ ul.section-projects li a.github {
     place-items: center;
     padding: 0;
   }
+}
+.skill-contener {
+  padding: 0;
 }
 .skill-contener li {
   display: contents;
@@ -219,8 +223,8 @@ ul.section-projects li a.github {
 }
 
 .circular-menu-in .btn {
-  width: 3.5em;
-  height: 3.5em;
+  width: 2.5em;
+  height: 2.5em;
   border-radius: 50%;
   background-color: transparent;
   box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, 0.26);
@@ -232,11 +236,15 @@ ul.section-projects li a.github {
 .circular-menu-in .btni {
   font-size: 0.5rem;
 }
+.circular-menu-in .btn:hover {
+  border-style: inset;
+}
 
 .circular-menu {
   position: fixed;
   bottom: 1em;
   right: 1em;
+  z-index: 100;
 }
 
 .circular-menu .floating-btn {

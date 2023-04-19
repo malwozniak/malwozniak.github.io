@@ -421,3 +421,12 @@ header {
     position: relative;
   }
 }
+
+@supports ((-webkit-mask-image: paint(smooth-corners)) or (mask-image: paint(smooth-corners))) {
+  .circular-menu:after.is-loaded {
+    border-radius: 0;
+    -webkit-mask-image: paint(smooth-corners);
+            mask-image: paint(smooth-corners);
+    --smooth-corners: 2.4;
+  }
+}

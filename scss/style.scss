@@ -471,3 +471,11 @@ header{
   }
   
 }
+
+@supports (mask-image: paint(smooth-corners)) {
+  .circular-menu:after.is-loaded {
+    border-radius: 0;
+    mask-image: paint(smooth-corners);
+    --smooth-corners: 2.4;
+  }
+}

@@ -47,7 +47,7 @@ background:
 header{
   display: grid;
   padding:2rem;
-  grid-template-rows: 5rem repeat(2, 3rem);
+//   grid-template-rows: 5rem repeat(2, 3rem);
 
   & span{
     .span-btn{
@@ -447,3 +447,27 @@ display: none;
 
 
 
+
+
+
+#myCanvas{
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  @media (max-width:960px ) {
+  position: absolute;
+  top: 0;
+  }
+}
+
+header{
+  position: absolute;
+  z-index: 2;
+  top: 15vh;
+  @media (max-width:960px){
+    top: 0;
+    position: relative;
+  }
+  
+}

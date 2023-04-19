@@ -40,7 +40,7 @@ html {
 header {
   display: grid;
   padding: 2rem;
-  grid-template-rows: 5rem repeat(2, 3rem);
+/*   grid-template-rows: 5rem repeat(2, 3rem); */
 }
 header span .span-btn {
   font-weight: 600;
@@ -396,3 +396,28 @@ ul.section-projects li a.github {
   border: 0.3vw solid var(--dark);
   border-radius: 5vw;
 }/*# sourceMappingURL=style.css.map */
+
+#myCanvas {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 960px) {
+  #myCanvas {
+    position: absolute;
+    top: 0;
+  }
+}
+
+header {
+  position: absolute;
+  z-index: 2;
+  top: 15vh;
+}
+@media (max-width: 960px) {
+  header {
+    top: 0;
+    position: relative;
+  }
+}

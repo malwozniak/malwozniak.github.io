@@ -81,7 +81,7 @@ header .links .media {
 @media (min-width: 960px) {
   .section-projects {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 50% 50%;
     place-items: center;
   }
   .beforeImage {
